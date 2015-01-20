@@ -1,0 +1,5 @@
+<?php 
+    $fields = array();
+    __FIELD_FORM__
+    $hidden = array('id' => $id);
+    echo print_form('/__MODEL_MIN__/persist/', $fields, $hidden);

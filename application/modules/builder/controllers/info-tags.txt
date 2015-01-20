@@ -1,0 +1,31 @@
+__MODEL__           = Countries
+__MODEL_MIN__       = countries
+__MODEL_MAY__       = COUNTRIES
+__SINGULAR__        = country
+__SINGULAR_MAY__    = Country
+__RENAME__          = c
+
+API
+__SET_METHODS_POST__    = $__SINGULAR__->setName($this->post("name"));
+__SET_METHODS_PUT__     = $__SINGULAR__->setName($this->put("name"));
+
+CONTROLLER
+__FIELDS_MODEL__        = "name" => "name", "code" => "code", "currency" => "currency"
+__FIELDS_POST__         = $name = $this->input->post("name");
+__FIELDS_STDS_CLASS__   = $name = $__SINGULAR__->name;
+__FIELDS_DATA_VIEW__    = $data["name"]   = $name;
+__FORM_VALIDATION__     = $this->form_validation->set_rules('name', 'lang:name', 'required');
+
+LANG
+__FIELDS_LANG__     = $lang["code"] = "Code";
+
+VIEWS
+__COL_TABLE__   = <th><?php echo lang('country') ?></th>
+__FIELD_FORM__  = $fields[lang('name')] = form_input(array('name'=>'name', 'class'=>'span3 focused', 'value'=>$name));
+
+JS
+__NULLS_DATATABLE__     = null,null,null,
+__RULES__               = name: "required",
+__MESSAGE_RULES__       = name:"<?php echo lang('required'); ?>",
+
+

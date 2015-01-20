@@ -1,0 +1,98 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+require APPPATH.'/libraries/REST_Controller.php';
+
+class __MODEL__ extends REST_Controller
+{
+	function __SINGULAR___get()
+    {
+        try{
+            if(!$this->get('id')){
+            	$this->response(NULL, 400);
+            }
+            
+            $__SINGULAR__ = $this->em->find('models\__MODEL__', $this->get('id'));
+            
+            if ($__SINGULAR__){
+                $this->response(array("status"=>true, "data"=>$__SINGULAR__->toArray()), 200);
+            } else {
+                $this->response(array("status"=>false, 'error' => 'Register could not be found'), 404);
+            }
+        } catch (PDOException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\DBAL\DBALException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\ORM\ORMException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Exception $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        }
+    }
+    
+    function __SINGULAR___post()
+    {
+        try {
+            if (!$this->post("id")){
+            	$this->response(NULL, 400);
+            }
+        
+            $__SINGULAR__ = $this->em->find('models\__MODEL__', $this->post("id"));
+            __SET_METHODS_POST__
+            $this->em->persist($__SINGULAR__);
+            $this->em->flush();
+            $this->response(array('status' => true), 200);
+        } catch (PDOException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\DBAL\DBALException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\ORM\ORMException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Exception $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        }
+    }
+
+    function __SINGULAR___put()
+    {
+        try {
+            $__SINGULAR__ = new models\__MODEL__();
+            __SET_METHODS_PUT__
+            $this->em->persist($__SINGULAR__);
+            $this->em->flush();
+            $id = $__SINGULAR__->getId();
+            $this->response(array('status' => true, 'id' => $id), 200);
+        } catch (PDOException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\DBAL\DBALException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\ORM\ORMException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Exception $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        }
+    }
+
+    function __SINGULAR___delete()
+    {
+        try {
+            if (!$this->delete("id")){
+            	$this->response(NULL, 400);
+            }
+            
+            $id           = $this->delete("id");
+            $__SINGULAR__ = $this->em->find('models\__MODEL__', $id);
+        
+            $this->em->remove($__SINGULAR__);
+            $this->em->flush();
+            $this->response(array('status' => true), 200);
+        } catch (PDOException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\DBAL\DBALException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Doctrine\ORM\ORMException $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        } catch (Exception $e) {
+            $this->response(array('status' => false, 'error' => $e->getMessage()), 400);
+        }
+    }
+}

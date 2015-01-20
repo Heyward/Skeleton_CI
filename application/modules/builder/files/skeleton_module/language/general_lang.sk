@@ -1,0 +1,10 @@
+<?php
+/*__MODEL_MAY__*/
+$lang["__SINGULAR__"]    = "__SINGULAR_MAY__";
+__FIELDS_LANG__
+$lang["create___SINGULAR__"]     = "Create __SINGULAR__";
+$lang["return___SINGULAR__"]     = "Back to __MODEL_MIN__";
+$lang["__SINGULAR___creation"]   = "__SINGULAR_MAY__ created successfully";
+$lang["__SINGULAR___edition"]    = "__SINGULAR_MAY__ edited successfully";
+$lang["__SINGULAR___delete"]          = "__SINGULAR_MAY__ deleted successfully";
+$lang["message_delete___SINGULAR__"]  = "Are you sure to delete the __SINGULAR__?";

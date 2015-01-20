@@ -1,0 +1,296 @@
+$bg-menu: #3D3D3D;
+$bg-red: #E02222;
+$bg-gray: #EEEEEE;
+$color-icon: #808080;
+$text-pricipal: #000000;
+$text-secundary: #FFFFFF;
+$text-icon: #808080;
+$size-icon: 22px;
+$border-gray: #595959;
+$height-menu: 35px;
+$bg-gray-dark: #313131;
+
+body{
+  color: $text-pricipal;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 300;
+  background: #3D3D3D;
+}
+
+ul, li{
+  list-style: none;
+  margin: 0;
+}
+
+select {
+    height: 2em;
+    margin: 0 0 1em;
+}
+
+#header{
+    background: #1F1F1F;
+    height: 42px;
+}
+
+#logo a{
+    display: inline-block;
+    padding: 15px 14px 0 14px;
+}
+
+#user-menu{
+  float: right;
+  padding: 6px 6px 0 6px;
+  height: 42px;
+  &:hover {
+    background: #333333;  
+  }
+  span{
+    color: $text-secundary;
+    display: inline-block;
+    margin: 8px 0 0 0;
+    vertical-align: top; 
+  }
+  .arrow{
+    float: right;
+    color: $text-icon;
+    line-height: 33px;
+    margin: 0 0 0 4px;
+  }
+}
+
+#container-menu{
+  background: $bg-menu;
+  padding: 0;
+  li{
+    border-bottom: solid 1px $border-gray;
+    min-height: $height-menu;
+    line-height: $height-menu;
+    a{
+      &:hover{
+        background: $bg-gray-dark;
+      }
+      .arrow-menu{
+        float: right;
+        font-size: 18px;
+        height: $height-menu;
+        line-height: 32px;
+      }
+      padding: 0 0 0 20px;
+      width: 100%;
+      color: $text-secundary;
+      display: inline-block;
+      i{
+        font-size: 14px;
+        vertical-align: top;
+        margin: 0 5px 0 0; 
+        color: $text-icon;
+      }
+    }
+  }
+}
+
+#container-menu .menu-selected{
+  background: #E02222;
+  i {
+    color: #FFFFFF;
+  }
+  .arrow-selected{
+    float: right;
+    height: 0px;
+    width: 0px;
+    margin-top: 7px;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: none;
+    border-right: 8px solid #ffffff;
+  }
+  &:hover{
+    background: #E02222;
+  }
+}
+
+#container-menu .submenu{
+  display: none;
+  padding: 0;
+  margin: 0;
+  li{
+    min-height: 25px;
+    height: 25px;
+    line-height: 25px;
+    border: none;
+    a{
+      &:hover{
+        background: #4B4B4B;
+      }
+    }
+  }
+}
+
+#content{
+  background: #FFFFFF;
+  min-height: 500px;
+  #body-content{
+    margin: 20px 0 0 0;
+  }
+}
+
+#footer{
+  color: #999999;
+  padding: 10px;
+}
+
+.menu-focus{
+  background: $bg-gray-dark;
+}
+
+.actions {
+    float: right;
+    margin: 20px 0 0;
+}
+
+.notification{
+    display: inline-block;
+    margin: 10px 3px 0;
+    position: relative;
+    i{
+      color: $color-icon;
+      font-size: $size-icon;
+      padding: 0 0 0 5px;
+    }
+    span{
+      background : $bg-red;
+      border-radius: 12px 12px 12px 12px !important;
+      color: $text-secundary;
+      font-size: 11px !important;
+      height: 14px;
+      position: absolute;
+      padding: 2px;
+      right: 10px;
+      top: -5px;
+      text-align: center;
+      width: 14px;
+    }
+}
+
+.content-notification{
+  .first{
+    background: $bg-gray;
+    cursor: default;
+  }
+}
+
+.content-user-menu{
+  .last{
+    height: 30px;
+    border-top: solid 1px $bg-gray;
+  }
+}
+
+.title{
+  color: #666666;
+  font-weight: 300;
+  font-size: 30px;
+  display: inline-block;
+  letter-spacing: -1px;
+  margin: 20px 0 15px;
+}
+
+.sub-title{
+  background: none repeat scroll 0 0 #EEEEEE;
+  color: #333333;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+/*BOXES*/
+.box{
+  margin: 0 0 10px 0;
+  background: #ffffff;
+  border: solid 1px #4B8DF8;
+  .box-content{
+    margin: 20px 0 0 0;
+    width: 100%;
+    min-height: 200px;
+    padding: 5px;
+  }
+  .box-header{
+    background: #4B8DF8;
+    height: 30px;
+    width: 100%;
+    color: #ffffff;
+    span{
+      display: inline-block;
+      line-height: 30px;
+      padding: 0 0 0 10px;
+    }
+    .box-actions{
+      display: inline-block;
+      float: right;
+      a{
+        float:right;
+      }
+    }
+  }
+}
+
+/*DATATABLE*/
+select[name*='_length']{
+  width: 50px;
+}
+
+[id*='_filter'] input{
+  width: 150px;
+  display: inline;
+  margin: 0;
+}
+
+.action_list{
+    background: url("../images/glyphicons-halflings.png") no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.action_edit{
+    background-position: 0 -72px;
+}
+
+.action_delete{
+    background-position: -312px 0;
+}
+
+.action_answers, 
+.action_permissions, 
+.action_cities, 
+.action_services{
+    background-position: -264px 0;
+}
+
+.action_change_menu,.action_change_active{
+    background-position: -240px -24px;
+}
+
+.action_up_position{
+     background-position: -289px -96px;
+}
+
+.action_down_position{
+     background-position: -312px -96px;
+}
+
+.action_detail,
+.action_comments{
+     background-position: -264px -24px;
+}
+
+
+
+#drop-user-menu a {
+    display: inline-block;
+    width: 100%;
+}
